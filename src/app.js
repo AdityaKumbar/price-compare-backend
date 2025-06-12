@@ -12,6 +12,8 @@ connectDB();
 // Middleware
 app.use(cors());
 app.use(express.json());
+const cors = require('cors');
+app.use(cors({ origin: 'https://price-compare-website.vercel.app' }));
 
 // Routes
 app.use('/api/products', require('./routes/products'));
