@@ -10,15 +10,11 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: 'https://price-compare-website.vercel.app' })); // Only allow frontend origin
 app.use(express.json());
-const cors = require('cors');
-app.use(cors({ origin: 'https://price-compare-website.vercel.app' }));
 
 // Routes
 app.use('/api/products', require('./routes/products'));
-
-// Scrapers routes
 app.use('/api/scrapers', require('./routes/scrapers'));
 
 // Default route for root path
